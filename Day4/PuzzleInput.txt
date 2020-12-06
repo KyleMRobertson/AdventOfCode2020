@@ -1,108 +1,957 @@
---- Day 4: Passport Processing ---
-You arrive at the airport only to realize that you grabbed your North Pole Credentials instead of your passport. While these documents are extremely similar, North Pole Credentials aren't issued by a country and therefore aren't actually valid documentation for travel in most of the world.
+byr1971
+iyr2017 hgt160cm
+eyr2020 eclhzl
+pid157096267
 
-It seems like you're not the only one having problems, though; a very long line has formed for the automatic passport scanners, and the delay could upset your travel itinerary.
+hgt183cm
+pid368895060
+ecloth eyr2020
+iyr2013
+byr1966
 
-Due to some questionable network security, you realize you might be able to solve both of these problems at the same time.
+ecllzr cid279 pid192cm
+hcl1f7352 iyr2014 hgt70cm eyr1983
+byr2004
 
-The automatic passport scanners are slow because they're having trouble detecting which passports have all required fields. The expected fields are as follows:
+hcl#602927 iyr2018 byr1938 eclblu
+eyr2024 hgt172cm
+pid839621424
 
-byr (Birth Year)
-iyr (Issue Year)
-eyr (Expiration Year)
-hgt (Height)
-hcl (Hair Color)
-ecl (Eye Color)
-pid (Passport ID)
-cid (Country ID)
-Passport data is validated in batch files (your puzzle input). Each passport is represented as a sequence of key:value pairs separated by spaces or newlines. Passports are separated by blank lines.
+ecl#12f268
+hcl#6b5442
+iyr2012 byr2011
+eyr1933 pid189cm hgt155in
 
-Here is an example batch file containing four passports:
+byr1954
+eclgry pid664227667 eyr2028
+hgt151cm
+iyr2019
 
-ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
-byr:1937 iyr:2017 cid:147 hgt:183cm
+eclgry
+byr1931 iyr2017
+pid459927933 eyr2028
+hgt67in hcl#fffffd
 
-iyr:2013 ecl:amb cid:350 eyr:2023 pid:028048884
-hcl:#cfa07d byr:1929
+cid322 hgt163cm
+byr1969 hcl#a97842 pid472877556
+iyr2019
+eclamb eyr2030
 
-hcl:#ae17e1 iyr:2013
-eyr:2024
-ecl:brn pid:760753108 byr:1931
-hgt:179cm
+hcl#733820 eclbrn byr2000 eyr2022 iyr2014 cid320 pid751634349
+hgt180cm
 
-hcl:#cfa07d eyr:2025 pid:166559648
-iyr:2011 ecl:brn hgt:59in
-The first passport is valid - all eight fields are present. The second passport is invalid - it is missing hgt (the Height field).
+eclblu eyr2028
+hcl#866857 byr2029 hgt191cm iyr2010
+pid170cm cid123
 
-The third passport is interesting; the only missing field is cid, so it looks like data from North Pole Credentials, not a passport at all! Surely, nobody would mind if you made the system temporarily ignore missing cid fields. Treat this "passport" as valid.
+pid258660154 byr1921 hgt161cm
+eyr2030
+cid217 iyr2012
+hcl#4dd6d4 eclgrn
 
-The fourth passport is missing two fields, cid and byr. Missing cid is fine, but missing any other field is not, so this passport is invalid.
+hgt170cm byr1978 eyr2022 pid399347273
+iyr2010 cid109 eclblu hcl#602927
 
-According to the above rules, your improved system would report 2 valid passports.
+pid172106685
+hgt183cm
+eclgry iyr2020 eyr2025 hcl#18171d byr1980 cid289
 
-Count the number of valid passports - those that have all required fields. Treat cid as optional. In your batch file, how many passports are valid?
+cid77 ecl#254ad9
+byr2017 pid169290741 iyr2003 hgt85 hclz
 
---- Part Two ---
-The line is moving more quickly now, but you overhear airport security talking about how passports with invalid data are getting through. Better add some data validation, quick!
+hgt155cm byr1987 ecloth hcl#fffffd
+iyr2010
 
-You can continue to ignore the cid field, but each other field has strict rules about what values are valid for automatic validation:
+eclbrn iyr2014 cid74
+hcl#623a2f
+hgt187cm byr1955 pid008305281 eyr2025
 
-byr (Birth Year) - four digits; at least 1920 and at most 2002.
-iyr (Issue Year) - four digits; at least 2010 and at most 2020.
-eyr (Expiration Year) - four digits; at least 2020 and at most 2030.
-hgt (Height) - a number followed by either cm or in:
-If cm, the number must be at least 150 and at most 193.
-If in, the number must be at least 59 and at most 76.
-hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
-ecl (Eye Color) - exactly one of: amb blu brn gry grn hzl oth.
-pid (Passport ID) - a nine-digit number, including leading zeroes.
-cid (Country ID) - ignored, missing or not.
-Your job is to count the passports where all required fields are both present and valid according to the above rules. Here are some example values:
+pid428624233 eclgrn
+eyr2027 hgt167cm hcl#623a2f byr1960 iyr2016
 
-byr valid:   2002
-byr invalid: 2003
+eyr2027 pid358876826 hgt171cm ecloth byr1957 iyr2018
+hcl#ceb3a1
+cid314
 
-hgt valid:   60in
-hgt valid:   190cm
-hgt invalid: 190in
-hgt invalid: 190
+eclgrn eyr2030
+hgt73in iyr2011 hcl#602927
 
-hcl valid:   #123abc
-hcl invalid: #123abz
-hcl invalid: 123abc
+hgt76in byr2029
+pid2703176 iyr2020
+eyr2037 ecl#95d926
+hcl9574d2
 
-ecl valid:   brn
-ecl invalid: wat
+eyr2020 hgt164cm
+byr1949 hcl#fffffd pid591281293 iyr2014 cid136
 
-pid valid:   000000001
-pid invalid: 0123456789
-Here are some invalid passports:
+cid268 hgt73in hcl#6b5442 eyr2025 eclbrn byr1988 pid899417027 iyr2015
 
-eyr:1972 cid:100
-hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926
+iyr2020 hcl#b6652a hgt177cm
+eyr2028 eclhzl
+byr1995 pid594197202
 
-iyr:2019
-hcl:#602927 eyr:1967 hgt:170cm
-ecl:grn pid:012533040 byr:1946
+hcl#a97842 hgt179cm byr1930
+eclbrn pid010268954 eyr2020 iyr2010
 
-hcl:dab227 iyr:2012
-ecl:brn hgt:182cm pid:021572410 eyr:2020 byr:1992 cid:277
+iyr2022 pid93390086
+cid321 eyr2034 hcl#a97842 hgt168in byr2006 ecl#a8f84c
 
-hgt:59cm ecl:zzz
-eyr:2038 hcl:74454a iyr:2023
-pid:3556412378 byr:2007
-Here are some valid passports:
+eyr2028 eclblu byr1935
+hcl#6b5442 pid187679418
+hgt174cm iyr2016
 
-pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980
-hcl:#623a2f
+iyr2019 hgt164cm pid704379775
+ecloth hcl#888785 byr1930
+eyr2025
 
-eyr:2029 ecl:blu cid:129 byr:1989
-iyr:2014 pid:896056539 hcl:#a97842 hgt:165cm
+hcl#6b5442 cid168
+hgt171cm eyr1944 iyr2018 pid675364934
+byr1962
+eclhzl
 
-hcl:#888785
-hgt:164cm byr:2001 iyr:2015 cid:88
-pid:545766238 ecl:hzl
-eyr:2022
+hclz
+eyr2039
+eclzzz pid26281402 cid144 iyr1928
+hgt166cm
 
-iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719
-Count the number of valid passports - those that have all required fields and valid values. Continue to treat cid as optional. In your batch file, how many passports are valid?
+eclhzl hcl#7d3b0c
+eyr2022 pid011589584
+hgt64in byr1945 iyr2014
+
+byr1950 hcl#18171d pid685748669 eyr2028 iyr2010 hgt176cm eclgrn
+
+byr1989
+hgt163cm hcl#18171d eclgrn iyr2020 pid721397788 cid308 eyr2020
+
+pid443496560 iyr1999
+eyr2027 hclz
+hgt69in eclzzz byr2019
+cid108
+
+pid#c9d804 eyr2011
+ecl#574df9 iyr2027 hclz byr2018
+hgt64
+
+hgt69cm
+iyr1926 hclfdcce6
+ecl#28b358
+eyr2026
+byr1994
+pid76404593
+
+eyr2020
+eclhzl pid978839539 hcl#efcc98
+byr1935 cid121
+hgt165cm
+
+eclamb
+byr1951 hgt186cm pid812513486 iyr2012 eyr2029 hcl#fffffd
+
+hclfcdd61 hgt168in eclgrt pid8474140699 byr1924 iyr2027 eyr2023
+
+ecloth hcl#866857
+byr1965 pid533941934 hgt166cm iyr2019 eyr2040
+
+eyr2032 pid0795438812 iyr2009 hclz
+byr2028 hgt131 eclgmt
+
+cid102 byr1923 eyr2025
+pid222102208 iyr2019 hcl#341e13
+hgt167cm
+eclamb
+
+hgt180cm byr1956 iyr2014 eyr2022
+ecloth cid175 hcl#888785
+
+cid216 eyr2022
+eclbrn pid002875069 iyr2019 hcl#cfa07d byr1991 hgt164cm
+
+iyr2014 byr1933 pid537809907
+hgt185cm eyr2029 hcl#341e13 eclblu
+
+cid286 hgt166cm byr1977 iyr2012 pid541909675 ecloth eyr2020
+hcl#59eb12
+
+hcl#18171d cid329 byr1921 eyr2027 iyr2019
+pid440820443 hgt75in eclblu
+
+hcl#733820 hgt177cm
+pid085529831 eyr2029 iyr2010 eclamb byr1972
+
+pid704125918 hcl#b6652a byr1981
+ecl#698ae8 cid141 iyr2018 eyr2026 hgt66in
+
+iyr2020 eyr2022
+hgt191cm hcl#7d3b0c
+eclblu byr1943 pid969407635
+
+pid10899196
+hgt161cm
+ecllzr iyr2023 hcl#ceb3a1 byr1986 eyr2012
+
+hcl#7d3b0c eclutc eyr2020
+byr2028 pid#f8c441 iyr2030
+hgt164cm
+
+byr2003 hclz iyr2012 hgt187in
+eclgry eyr2030 pid150cm
+
+pid427618420 hgt155cm iyr2012
+eclbrn
+byr1948 eyr2029 hcl#6b5442
+
+ecloth hgt81
+byr2025 cid66 pid174cm hclz
+eyr2021
+
+byr2027 ecllzr hcl#888785 eyr1923 hgt110 cid54 iyr1939
+
+hcl#341e13 byr1961 eyr2022 hgt163cm cid137 eclamb
+iyr2019
+
+hcl#866857
+iyr2020
+byr2005
+hgt139 eclamb cid181
+eyr2016
+pid181cm
+
+byr2030
+iyr2014
+hcl#733820 cid74 eyr2021 hgt179cm
+pid7938817872
+eclamb
+
+hcl91a6dd
+iyr2019 byr2024
+hgt72cm
+eclgmt eyr2023
+pid8440093771
+
+eclgrn byr1963 cid60 iyr2030
+hgt74 eyr2022
+pid193189388
+hcl#b6652a
+
+pid403849590 byr2012
+eyr1951 cid90 iyr2023
+hgt69cm hclz eclgmt
+
+iyr2010 hcl#341e13
+pid011326174 hgt185cm byr1976 cid207 eyr2027 eclamb
+
+hgt64in
+pid499837104 hcl#3be285
+byr1944
+eyr2024 iyr2017
+eclgry
+
+eyr2032 pid#850d4e hcldeddda eclbrn hgt172 byr2004
+cid244 iyr2022
+
+hcla3346d eclamb
+pid#505713 hgt74cm eyr2010 iyr2020
+
+byr1987
+ecloth iyr2012 eyr2023
+pid131199420 cid112 hcl#a97842
+
+cid256 hcl#a97842 byr2000 iyr2018 ecloth
+eyr2022 pid637777693 hgt160cm
+
+hgt152cm
+cid164 hcl#866857 eclgrn eyr2025
+pid495224989 iyr2020 byr1949
+
+iyr2010
+cid288 byr1986 eclblu
+pid304077824
+eyr2020
+
+hgt182cm
+eclblu
+hcl#18171d pid047931925 byr1964
+iyr2012 eyr2030 cid167
+
+byr1958
+hcl#866857 iyr2019 hgt165cm pid553631683
+cid109 eclgry
+eyr2023
+
+cid156
+iyr2014 pid811368482 eyr2026 hcl#b6652a byr1994
+hgt184cm eclbrn
+
+hcl#733820
+hgt183cm eclgrn
+pid265625165 byr1943 cid344
+iyr2011
+
+iyr2017 hcl#c0946f pid716422629 cid104 byr1974
+hgt160cm eyr2021 eclbrn
+
+byr2002 hgt180cm hcl#602927
+eyr2025 eclgrn iyr2011 pid887584172
+
+hcl#888785 eclbrn eyr2026
+pid14483306 byr1947
+hgt177cm iyr2015
+
+hcl#b6652a
+ecl#64783e eyr2020 hgt163 pid651615946
+iyr2012 byr1999
+
+iyr2014 eclgry hgt188cm eyr2028 pid503058612 hcl#a31066
+
+hgt178cm hclz
+eclamb
+pid17656631
+eyr2031 byr2023
+
+hgt166cm pid783568747 hcl#341e13
+byr1955 eclgrn eyr2023
+
+iyr2016 hgt161cm byr1989
+eyr2023
+eclamb pid133770783
+hcl#fffffd
+
+cid75 byr1986 eyr2020 pid099478576 eclblu
+hcl#733820
+iyr2011 hgt158cm
+
+pid911200183 hcl#602927 eyr2029 iyr2018 eclbrn hgt181cm
+byr1937
+
+iyr1928 byr2020 hcl579202
+hgt60 eclutc eyr1963 pid157cm
+cid253
+
+eyr2028 iyr1949
+pid284455762 hcl#a97842 ecloth byr1947 hgt163cm
+
+hcl#18171d eyr2025 cid222
+byr1924 ecloth
+pid898594506 hgt182cm
+iyr2017
+
+byr1935 iyr2027
+hgt160in pid#c090c3
+hcl#623a2f cid162 eyr1942 eclamb
+
+iyr2014 hgt160cm eyr2028 hcl#623a2f byr2010
+pid684765216 eclblu
+
+byr1958
+hgt154cm hcl#a97842
+ecloth iyr2015 eyr2020 cid334
+
+pid636691339 iyr2018
+byr1930
+hcl#b6652a cid86
+hgt184cm ecloth
+eyr2029
+
+iyr2025
+hgt76cm ecl#043004 hclz
+byr2009 eyr1999
+
+eyr2020 pid56419390 iyr2015 hcl#ceb3a1 eclutc
+hgt98
+
+iyr2014 byr1927 hcl#fffffd eclamb eyr2022
+hgt188cm pid602778565
+
+hcl#cfa07d eyr2029 byr1937 pid7912057436
+eclhzl
+cid192 hgt68in iyr2012
+
+hgt155cm
+iyr2015 byr1954 pid559203670
+eclblu hcl#fffffd eyr2025
+
+hcl#341e13 byr1998 iyr2019
+cid312
+ecloth
+pid230874778 hgt161cm
+
+iyr2011 eclamb
+eyr2026
+hgt163cm byr1932 hcl#733820 pid850176278
+
+eyr2030
+hgt170cm
+iyr2017 byr1972
+pid014731313
+hcl#341e13 eclbrn
+
+pid133005637
+hgt167cm
+cid317
+eyr2025 hcl#341e13 iyr2012 eclgry byr1950
+
+iyr2029 pid745014772 hgt68in
+eyr2034 eclhzl
+hclec07ce
+
+hgt165cm
+eclgry
+hcl#a97842 byr1921 cid263 pid609363367
+
+pid192cm hcl18f308
+ecloth
+eyr2037 cid239 iyr2026 byr2010
+
+hcld0e525 eyr2037 iyr2019
+cid197
+pid469740743
+hgt186in eclbrn byr1977
+
+eclhzl cid254 hgt165cm
+eyr2024 byr1996
+iyr2021 pid797277746 hcle286e8
+
+hcl#b6652a cid142 ecloth hgt190cm byr1962 pid997137384 iyr2020
+eyr2029
+
+eclbrn byr1962 hcl#866857 iyr2020 hgt152cm pid701556397 cid121 eyr2029
+
+eyr2024 cid186 hclz
+byr1962 hgt155cm pid448098321 iyr2017 eclgrn
+
+iyr2016
+hgt168cm byr1999
+cid286
+hcl#18171d pid223995430 eyr2022 eclblu
+
+pid227780276 eclblu iyr2017 byr1985 hcl#6b5442 hgt183cm eyr2028
+
+hgt190cm
+ecloth eyr2030 cid223 hcl#888785 iyr2010
+pid115829664 byr1967
+
+eyr1992 pid0688674980 hclz
+byr2028
+hgt186in ecl#849f7b
+iyr2029
+cid64
+
+eyr2025
+iyr2013 byr1958 eclgrn
+hcl#ceb3a1
+hgt153cm pid815357118
+
+pid038013822 hgt180cm iyr2013
+hcl#623a2f
+eclgrn eyr2029 byr1949
+
+byr1923
+cid299 hgt184cm iyr2020
+hcl#fffffd eyr2027
+eclhzl
+
+byr1930
+iyr2012
+eclgrn hcl#87f2c8 pid787371085
+
+iyr2019
+eyr2028 pid107626362 hgt183cm
+eclgrt hcl#623a2f byr1985
+
+byr2011
+hgt68in iyr2002 ecl#5dfa18 hcl#341e13 pid205853974
+
+iyr2014
+pid179cm
+hcl13b9e3 eyr2022 ecl#b1759b hgt184in
+byr1954
+
+hgt183cm hcl#efcc98
+pid428260080 cid231 eyr2025 eclgrn
+iyr2010
+byr1957
+
+iyr2016
+eclgry
+pid192cm eyr2026
+byr1956
+hgt174cm hcl#623a2f
+
+eyr2021 eclblu cid230
+byr1923
+pid438732879 hgt167cm
+hcl#602927
+
+byr1948 eclxry
+pid154cm hgt179cm eyr2029 iyr2017
+hcl#dd59ab
+
+hcl#ceb3a1
+iyr2014 byr1981 hgt167cm eclgrn
+eyr2021
+pid926925947
+
+iyr1985
+pid652196636 hcl#18171d ecl#ff3e10 hgt162cm byr2012 eyr2023 cid171
+
+eyr2029
+hgt166cm
+pid499909488 byr1929 hcl#866857 eclbrn iyr2013
+
+pid440245122
+byr1992 hgt179cm iyr2010 cid181 eclbrn hcl#888785 eyr2020
+
+eyr2029 hcl#888785 pid274994154 eclhzl
+iyr2014 byr1995
+
+pid3195072620
+hclz eclhzl cid130 iyr2030 eyr2034 hgt157
+
+hcl#1b0a51
+pid129985083 eyr2029
+hgt192cm cid236 byr1996 eclblu iyr2016
+
+ecllzr pid899902347 iyr1982
+hcl#cfa07d eyr2028 byr1927 hgt155in
+
+cid187 eyr2029 hcl#efcc98 byr1986 pid760318090
+hgt169cm iyr2018 eclamb
+
+hcl#fffffd eyr2021 pid532530085 iyr2019 byr1995 hgt169cm
+
+iyr1980
+hclz eyr2019
+hgt72cm pid6532875244 ecl#2f2221 byr2006
+
+hgt174cm byr1920
+eclgry pid#14fae7 eyr2026 hcl#1814d1
+iyr2013
+
+hcl#ceb3a1 eclgrn
+iyr2018
+byr1978
+hgt183cm pid566862236
+eyr2028
+
+iyr2020 eclamb
+pid618246345 byr1940
+hgt60cm eyr2027 cid242 hcl#b6652a
+
+eclgrn
+hcl#18171d byr1957 pid325895714 iyr2018
+eyr2023 hgt162cm
+
+ecl#a3ed7b
+byr2024
+hclz eyr2022 iyr2016 cid350 hgt119 pid185cm
+
+iyr2010
+byr2004 eyr2032 cid326 hcl6019c5
+eclgmt hgt137
+
+pid477848102 eyr2025 hgt178cm hcl#e31a3d eclbrn
+byr1943
+
+pid#65fca1 eyr2026 hgt192cm cid293 eclblu byr2026 iyr2024 hcl#a97842
+
+eyr2025 cid181 hgt186cm byr1968
+eclbrn pid318405093 hcl#341e13 iyr2015
+
+hcl#c12f4b eyr2025 cid311 pid652667870
+ecloth
+hgt166cm
+byr1981 iyr2016
+
+eclhzl
+byr2025 iyr2014
+hcl138d5c eyr2037 hgt160in cid206
+pid#d9119b
+
+pid51419740 cid141
+iyr2012
+hgt90 ecl#9438f4 hcl#7d3b0c byr2021 eyr2020
+
+pid#0bc613
+hclz byr2017
+hgt91 cid284 eyr1966 iyr2008
+ecl#974ceb
+
+cid344 iyr1953 eyr2020 eclhzl byr2019 hclz pid2969979
+
+eclgry
+byr1925 cid113
+hcl#a97842 pid744660539 hgt153cm iyr2020
+
+hgt177 pid856186682 eyr1968 eclblu
+cid167 byr1986 hcl#866857 iyr2015
+
+byr1937 eyr2021 iyr2017
+cid91 hgt183cm hcl#a97842 eclblu pid149192621
+
+hgt154cm hcl#602927 ecloth
+byr1939 iyr2018 pid670669747 eyr2029 cid301
+
+eyr2025 pid249412970 ecloth
+iyr2016
+byr1921 hcl#a97842 hgt176cm
+
+byr1969
+iyr2019 hcl9de0cb
+pid644476999 hgt75in
+ecloth eyr2022
+
+hgt164cm iyr2016
+byr1988 eclgry
+eyr2030
+hcl#efcc98 pid393258887
+
+hgt183cm pid6930456 eyr2023 cid210 ecl#766482 byr2023 iyr2017 hclz
+
+iyr2011 hgt165cm eyr2020 byr1966
+hcl#efcc98 pid691169980 eclblu
+
+iyr2011 hcl#602927 eyr2029
+byr1966
+ecloth hgt165cm pid945383793
+
+pid567096741 iyr2025
+eclgry eyr1944 hgt187in byr2026 hcl8ac39a
+
+byr2025
+eyr2025 iyr2015
+hgt191 pid1659927272 eclgrn
+
+iyr2027 hgt63in byr1963 pid874200881
+ecloth hcl#c0946f eyr2029
+
+hcl#b37a48
+byr1957 eclhzl
+eyr2030
+iyr2013
+
+pid#38e0fd eyr2019 cid103
+hgt153in
+ecl#956d7c
+iyr2029 byr2029 hclz
+
+eyr2021 pid956654136
+hcl#854d9d hgt186cm byr1960 iyr2015
+
+eyr2020
+byr1995
+hcl#b6652a eclamb pid746523744 iyr2015
+hgt178cm
+
+eyr2020 hgt173cm cid322 byr1956 iyr2020 eclblu
+pid833595649
+
+eclgry iyr2017 eyr2020 pid537816651 hgt183cm cid160 byr1996 hcl#733820
+
+iyr1920
+byr2013
+hclz eyr1932 pid169cm
+
+eyr2030 cid258 iyr2020 eclgrn byr1947 pid571610070
+hgt162cm hcl#888785
+
+byr2025 hgt155cm iyr2030 eclamb eyr2002
+
+iyr2020 eclhzl
+pid090561426 hcl#a97842
+byr1923
+
+eclhzl
+iyr2019
+hcl#c0946f eyr2025
+byr1999 hgt178cm pid026042669
+
+hgt74in
+eyr2027 iyr2015 eclgry
+byr2005 pid#28b09d
+
+eyr1953 byr2014 ecllzr cid202 hcl1af88d
+iyr2028
+
+cid99
+pid706477697 iyr2018 hgt171cm eyr2027
+ecloth
+byr1978 hcl#930aef
+
+iyr2017
+byr1935
+eyr2029
+eclamb pid321873254 hgt179cm hcl#1b9aea cid160
+
+iyr2013 eclhzl eyr2023 cid233 byr1996 pid605962483 hgt175cm hcl#ceb3a1
+
+pid754905579
+eclbrn eyr2021 hcl#ceb3a1
+byr1943 hgt59in
+
+cid110 byr1935 eyr2021 hgt172cm iyr2020
+pid643443673 hcl#888785 eclbrn
+
+eclgmt hcl#cfa07d
+hgt148 iyr2024 pid635827422
+eyr1935
+byr1964
+
+iyr2012 byr2016 hclz
+hgt178cm pid213073693 eyr2005
+
+ecl#b3cc58 byr2027 pid172cm hcl#888785 hgt177cm eyr1988
+iyr2027
+
+eyr2029
+byr1923
+hcl#d9855b cid134 pid068598146 hgt152cm eclblu
+
+cid309
+iyr2010 ecloth hgt188cm hcl#18171d eyr2028 pid174227992 byr1931
+
+iyr2010 hgt72in cid266 eclbrn pid0090854908
+hcl#623a2f eyr2032
+byr1967
+
+pid192554211 eyr2020 hgt192cm eclgry cid158 iyr2015 byr1940
+hcl#efcc98
+
+cid248 hgt75in eyr2025 byr1957 hcl#c0946f
+iyr2019
+eclbrn
+
+pid96533216 hclz eclblu eyr2027 hgt193cm cid224
+byr1928 iyr2014
+
+iyr2010
+eyr2022 cid276 hcl#a97842 byr1968 eclgry pid808830560 hgt188cm
+
+hgt158in
+pid097590485 iyr2030 eyr1940 hclz cid274
+ecl#2ea9ec
+byr2024
+
+pid616947922 byr1982 iyr2014 hgt186cm ecloth hcl#888785
+
+byr1941 pid039744699 hcl#efcc98 hgt190cm iyr2011
+eyr2020 eclblu
+
+byr1971
+eclhzl hgt65in
+pid076133019 iyr2019 eyr2030
+
+eclblu iyr2011 byr1928 hcl#c0946f hgt172cm eyr2026 pid171544458
+
+byr1929 pid145819079 eclhzl
+hgt192cm iyr2015 eyr2020 hcl#b6652a
+
+byr1981 eclamb pid123467924
+eyr2024 hcl#18171d
+hgt184cm iyr2017
+
+byr1957
+ecloth pid881258191 hgt65in iyr2010
+hcl#a97842
+
+eclamb eyr2020 hgt152cm
+iyr2021 pid9448811025 hcl#c0946f cid204 byr2030
+
+eyr2022 pid208725350
+byr1944 eclblu hcl#18171d cid164
+hgt170cm iyr2014
+
+hcl#18171d eyr1952 iyr1939 pid788651896 hgt157in byr2007
+
+byr1944 cid87 pid463367304
+iyr2020 hgt188cm eclgry
+eyr2027 hcl#cfa07d
+
+eclhzl
+iyr2018 hgt164cm byr1972 cid272 pid990204374
+hcl#6b5442
+
+hgt155cm pid791416860 iyr2015
+cid278 hcl#18171d byr1994 eclbrn
+eyr2023
+
+iyr2017 cid245 eyr2026 byr1932 eclblu
+hgt159cm pid904760812 hcl#18171d
+
+eclblu hcl#6b5442
+iyr2015 eyr2023 pid535891497 hgt175cm cid168 byr1920
+
+byr2000 hcl#6b5442 hgt156cm
+pid765444727 iyr2012
+eclbrn
+eyr2028
+
+eyr2005 pid9092484649
+byr2028
+ecl#5fc7fc hgt81
+iyr1988 hcl8280e1
+
+cid275
+byr1928 iyr2010 hcl#888785 pid596954301 eclbrn eyr2020 hgt166cm
+
+cid163
+byr1984 eyr2027 iyr2020
+eclgry hgt166cm pid650001846
+hcl#602927
+
+iyr1925 eyr2030
+byr1985 hcl#cfa07d ecl#f16a95 hgt150cm pid67853501
+
+eclgry
+eyr1949 cid218 hgt73cm byr2004 pid055108092
+iyr1961
+
+eyr2024 iyr2016 pid133523002
+hgt62in hcl#d99c14
+byr1996 eclhzl
+
+eyr2026 iyr2019 hgt189cm eclbrn hcl#623a2f
+byr1979 pid172111665
+
+iyr2017
+eyr1937 ecl#bfd0ee
+byr1964 hcl#733820
+hgt169cm pid33181449
+
+eyr2024 hcl#6b5442
+iyr2014
+hgt68in pid577055593 eclgrn byr1996
+
+hclz cid150 eyr2039 byr2015 pid2453663020 eclbrn
+hgt154cm
+
+hcl#efcc98 eyr2022
+eclgrn hgt167cm byr1978 iyr2010 pid180446111
+
+eclgry
+iyr2020 hgt152cm pid#cce9cf eyr2028
+byr1942
+hclz
+
+hcl#341e13 eclbrn iyr2019
+pid589837530 cid157 byr1925 hgt183cm eyr2020
+
+byr2009
+pid179cm hgt164cm
+iyr1927 hcl#cfa07d eyr2034
+
+ecloth iyr2012
+eyr2028 hcl#866857 pid716964854
+byr1940 cid113 hgt193cm
+
+byr1985 iyr2011 hcl#866857 pid454558712 eyr2025 cid301
+hgt62in eclblu
+
+hcl#733820 eyr2025 eclamb
+pid855788635 iyr2016
+byr1965
+cid140 hgt183cm
+
+hcl#efcc98 cid326 eyr1961
+pid001357810 iyr1947 ecl#8abfc8 hgt75 byr2012
+
+hgt60cm pid#e28da4 byr2014 iyr2019 eyr2040 eclutc
+
+hcl#733820 eyr2022 pid708208638 hgt162cm cid326 iyr2018 ecloth byr1997
+
+iyr1967 byr2013 pid8595504787 hgt73cm ecldne
+
+pid808787977 hcl#18171d
+cid205 hgt181cm
+byr1986
+eclgry iyr2013
+
+ecldne iyr2009
+byr2027
+hgt188in hcl#c0946f
+pid585147305 eyr2024
+
+hcl#733820 iyr2019
+eyr2020
+hgt190cm
+pid042907748 eclgrn byr1920
+
+ecl#603ad1
+eyr2026
+hcl33f9f8
+pid862887360 hgt156in byr1993
+iyr2013
+
+ecloth eyr2030 byr1960
+hcl#a97842 cid285
+hgt60in pid655974048 iyr2016
+
+iyr2030
+hgt143
+pid65806846 byr1948 hcl#72a0d3 eyr1934 ecl#7cd402
+
+hclz pid#0f7c0a iyr2012 hgt161cm
+byr2022 eyr1937
+
+hcl#fffffd eclhzl
+hgt191cm byr1935 iyr2015 cid240 eyr2030 pid778049989
+
+eclamb iyr2011 hcl#e196f6 pid231470794 eyr2026 hgt179in byr1979
+
+ecloth hcl#6b5442 pid181cm hgt72cm
+eyr2040 iyr2010
+
+iyr2016 eyr2026 pid113617276
+cid117 hgt176cm eclgrn
+hcl#c5b999
+
+iyr2016 byr1941
+pid846760253 hgt60cm
+hcl#7d3b0c eclzzz
+eyr1972
+
+eyr2023 hcl#623a2f
+cid103 pid476193829 hgt181cm ecloth byr1997
+iyr2014
+
+ecl#b64a07 hcl7bb40c byr2028 eyr2039 pid#e2ba33 hgt189 iyr1940
+
+pid#3ecfd8 hcl#7d3b0c iyr2014 ecl#30a5e7 hgt73cm byr1954
+
+ecldne
+byr2011 pid512088455
+hcl#18171d eyr2023
+iyr2024
+
+byr1996 eyr2026 pid268556486 eclbrn
+hgt150cm
+iyr2013 hcl#7d3b0c
+
+iyr2014
+eclgrn pid222910621 hcl#602927
+eyr2030 hgt155cm
+
+pid530689228 byr1938
+iyr2015
+hgt185cm eclhzl eyr2022 hcl#866857
+
+hcl#b6652a byr2028 iyr2018 cid150 ecllzr pid706073193 hgt169cm
+
+hgt171cm eclgry hcl#6b5442 byr1953
+iyr2011 pid622763802 eyr2026
+
+eyr2032 hgt137
+pid5033763648
+byr1925 eclhzl hcl#623a2f iyr2024
+
+byr1930 pid6999766453 ecl#3e3e07
+hcl#602927 iyr2010 eyr2039
+hgt160cm
+
+hgt122 eclamb pid105302121 iyr2017
+hcl#733820
+eyr2027 byr1955
+
+hcl#95f96b
+hgt193cm iyr2020 pid719337690
+byr1971
+eclbrn eyr2024
